@@ -31,6 +31,11 @@ void transformArray(char c[], int n)
 	char* pointerToBA = c;//Array base
 	char* pointerToTA = *arrayT;//array transformado
 	int cont = 0;
+	string unmil("mil");
+	bool miles = false;
+	bool millones = false;
+	
+
 	for (; pointerToBA < c + n; pointerToBA++, pointerToTA++)
 	{
 		//cout << cont << " : " << *pointerToBA<<endl;
@@ -41,55 +46,124 @@ void transformArray(char c[], int n)
 	}
 	pointerToTA = *arrayT;//reinicia el array
 	cout << "principal : " << *pointerToTA << endl;
-	cout << "ultimo : " << *(pointerToTA + n - 1) << endl;
+	cout << "ultimo : " << *(pointerToTA +1) << endl;
 
 	while (n)
 	{
 		switch (n)
 		{
-		case 1://si n es unidad
+		case 1:case 4://si n es unidad
 
+			if (n == 4)
+			{
+				miles = true;
+			}
+			if (*pointerToTA == '0')
+			{
+				//falta revisar
+			}
 			if (*pointerToTA == '1')
 			{
+				if (miles)
+				{
+					cout << "mil ";
+
+				}
+				else
 				cout << "uno";
+				
 			}
 			else if (*pointerToTA == '2')
 			{
-				cout << "dos";
+				if (miles)
+				{
+					cout << "dos mil ";
+
+				}else
+					cout << "dos ";
+
 			}
 			else if (*pointerToTA == '3')
 			{
-				cout << "tres";
+				
+				if (miles)
+				{
+					cout << "tres mil ";
+
+				}else
+					cout << "tres ";
 			}
 			if (*pointerToTA == '4')
 			{
-				cout << "cuatro";
+				
+				if (miles)
+				{
+					cout << "cuatro mil ";
+
+				}else
+					cout << "cuatro";
 			}
 			else if (*pointerToTA == '5')
 			{
-				cout << "cinco";
+				
+				if (miles)
+				{
+					cout << "cinco mil ";
+
+				}else
+					cout << "cinco";
 			}
 			else if (*pointerToTA == '6')
 			{
-				cout << "seis";
+				
+				if (miles)
+				{
+					cout << "seis mil ";
+
+				}else
+					cout << "seis";
 			}
 			if (*pointerToTA == '7')
 			{
-				cout << "siete";
+				if (miles)
+				{
+					cout << "siete mil ";
+
+				}else
+					cout << "siete";
 			}
 			else if (*pointerToTA == '8')
 			{
-				cout << "ocho";
+				
+				if (miles)
+				{
+					cout << "ocho mil ";
+
+				}else
+					cout << "ocho";
 			}
 			else if (*pointerToTA == '9')
 			{
-				cout << "nueve";
+				
+				if (miles)
+				{
+					cout << "nueve mil ";
+
+				}else
+					cout << "nueve";
 			}
 			n--;
+			pointerToTA++;
+			if (miles)miles = false;
 			break;
 
-		case 2://si n es decena
+		case 2 :case 5://case 5://si n es decena
 
+			if (n==5)
+			{
+				miles = true;
+				
+			}
 			if (*pointerToTA == '0')
 			{
 				n--;
@@ -100,112 +174,124 @@ void transformArray(char c[], int n)
 			{
 				if (*pointerToTA == '1')
 				{
-					if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '1' && *(pointerToTA+1) == '0')
 					{
 						cout << "diez";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '1')
+					else if (*pointerToTA == '1' && *(pointerToTA+1) == '1')
 					{
 						cout << "once";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '2')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '2')
 					{
 						cout << "doce";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '3')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '3')
 					{
 						cout << "trece";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '4')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '4')
 					{
 						cout << "catorce";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '5')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '5')
 					{
 						cout << "quince";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '6')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '6')
 					{
 						cout << "dieciseis";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '7')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '7')
 					{
 						cout << "diecisiete";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '8')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '8')
 					{
 						cout << "dieciocho";
 						n -= 2;
 					}
-					else if (*pointerToTA == '1' && *(pointerToTA + n - 1) == '9')
+					else if (*pointerToTA == '1' && *(pointerToTA + 1) == '9')
 					{
 						cout << "diecinueve";
 						n -= 2;
 					}
 				}
 				else if (*pointerToTA == '2') {
-					if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '2' && *(pointerToTA + 1) == '0')
 					{
 						cout << "veinte";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '1')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '1')
 					{
+						if(miles)
+							cout << "veintiun";
+						else
 						cout << "veintiuno";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '2')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '2')
 					{
 						cout << "veintidos";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '3')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '3')
 					{
 						cout << "veintitres";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '4')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '4')
 					{
 						cout << "veinticuatro";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '5')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '5')
 					{
 						cout << "veinticinco";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '6')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '6')
 					{
 						cout << "veintiseis";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '7')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '7')
 					{
 						cout << "veintisiete";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '8')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '8')
 					{
 						cout << "veintiocho";
 						n -= 2;
 					}
-					else if (*pointerToTA == '2' && *(pointerToTA + n - 1) == '9')
+					else if (*pointerToTA == '2' && *(pointerToTA + 1) == '9')
 					{
 						cout << "veintinueve";
 						n -= 2;
 					}
 				}
+				//if (miles)
+				//{
+				//	cout << " mil ";
+				//	miles = false;
+				//	pointerToTA ++;
+				//	pointerToTA++;
+				//	
+				//	
+				//}
 			}
 
-					if (*pointerToTA == '3' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '3' && *(pointerToTA + 1) == '0')
 					{
 						cout << "treinta";
 						n -= 2;
@@ -215,9 +301,11 @@ void transformArray(char c[], int n)
 						cout << "treinta y ";
 						n--;
 						pointerToTA++;
+						if (miles && *pointerToTA == '1')
+							cout << "un ";
 						continue;
 					}
-					if (*pointerToTA == '4' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '4' && *(pointerToTA + 1) == '0')
 					{
 						cout << "cuarenta";
 						n -= 2;
@@ -227,9 +315,11 @@ void transformArray(char c[], int n)
 						cout << "cuarenta y ";
 						n--;
 						pointerToTA++;
+						if (miles && *pointerToTA == '1')
+							cout << "un ";
 						continue;
 					}
-					if (*pointerToTA == '5' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '5' && *(pointerToTA + 1) == '0')
 					{
 						cout << "cincuenta";
 						n -= 2;
@@ -239,9 +329,11 @@ void transformArray(char c[], int n)
 						cout << "cincuenta y ";
 						n--;
 						pointerToTA++;
+						if (miles && *pointerToTA == '1')
+							cout << "un ";
 						continue;
 					}
-					if (*pointerToTA == '6' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '6' && *(pointerToTA + 1) == '0')
 					{
 						cout << "sesenta";
 						n -= 2;
@@ -251,9 +343,11 @@ void transformArray(char c[], int n)
 						cout << "sesenta y ";
 						n--;
 						pointerToTA++;
+						if (miles && *pointerToTA == '1')
+							cout << "un ";
 						continue;
 					}
-					if (*pointerToTA == '7' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '7' && *(pointerToTA + 1) == '0')
 					{
 						cout << "setenta";
 						n -= 2;
@@ -263,9 +357,11 @@ void transformArray(char c[], int n)
 						cout << "setenta y ";
 						n--;
 						pointerToTA++;
+						if (miles && *pointerToTA == '1')
+							cout << "un ";
 						continue;
 					}
-					if (*pointerToTA == '8' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '8' && *(pointerToTA + 1) == '0')
 					{
 						cout << "ochenta";
 						n -= 2;
@@ -276,9 +372,11 @@ void transformArray(char c[], int n)
 						cout << "ochenta y ";
 						n--;
 						pointerToTA++;
+						if (miles && *pointerToTA == '1')
+							cout << "un ";
 						continue;
 					}
-					if (*pointerToTA == '9' && *(pointerToTA + n - 1) == '0')
+					if (*pointerToTA == '9' && *(pointerToTA + 1) == '0')
 					{
 						cout << "noventa";
 						n -= 2;
@@ -288,14 +386,30 @@ void transformArray(char c[], int n)
 						cout << "noventa y ";
 						n--;
 						pointerToTA++;
+						if (miles && *pointerToTA == '1')
+							cout << "un ";
 						continue;
 					}
 			
+					if (miles)
+					{
+						cout << " mil ";
+						miles = false;
+						pointerToTA++;
+						pointerToTA++;
 
+
+					}
 				break;
 
 		case 3://si n es centena
-			if (*pointerToTA == '1'&&*(pointerToTA+n-2) == '0'&&*(pointerToTA+n-1) =='0')
+			if (*pointerToTA == '0')
+			{
+				n--;
+				pointerToTA++;
+				continue;
+			}
+			if (*pointerToTA == '1'&&*(pointerToTA+1) == '0'&&*(pointerToTA+2) =='0')
 			{
 				cout << "cien";
 				n -= 3;
@@ -326,7 +440,7 @@ void transformArray(char c[], int n)
 			}
 			else if (*pointerToTA == '5')
 			{
-				cout << "quinientos";
+				cout << "quinientos ";
 				n--;
 				pointerToTA++;
 			}
@@ -356,6 +470,75 @@ void transformArray(char c[], int n)
 			}
 
 			break;
+		//case 4://si n es unidad
+
+		//	if (*pointerToTA == '1' )
+		//	{
+		//		cout << "mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	else if (*pointerToTA == '2')
+		//	{
+		//		cout << "dos mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	else if (*pointerToTA == '3')
+		//	{
+		//		cout << "tres mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	if (*pointerToTA == '4')
+		//	{
+		//		cout << "cuatro mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	else if (*pointerToTA == '5')
+		//	{
+		//		cout << "cinco mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	else if (*pointerToTA == '6')
+		//	{
+		//		cout << "seis mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	if (*pointerToTA == '7')
+		//	{
+		//		cout << "siete mil";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	else if (*pointerToTA == '8')
+		//	{
+		//		cout << "ocho mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	else if (*pointerToTA == '9')
+		//	{
+		//		cout << "nueve mil ";
+		//		n--;
+		//		pointerToTA++;
+		//		continue;
+		//	}
+		//	
+		//	break;
+
+		
 		default:
 			n = 0;
 			break;
